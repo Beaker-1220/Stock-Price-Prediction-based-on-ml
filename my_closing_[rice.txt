@@ -1,0 +1,157 @@
+Warning: path already exists! This predictor may overwrite an existing predictor! path="autogluon-HSI"
+Frequency '1D' stored as 'D'
+Beginning AutoGluon training... Time limit = 600s
+AutoGluon will save models to 'autogluon-HSI'
+=================== System Info ===================
+AutoGluon Version:  1.0.0
+Python Version:     3.9.18
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22621
+CPU Count:          16
+GPU Count:          1
+Memory Avail:       7.34 GB / 15.86 GB (46.3%)
+Disk Space Avail:   45.78 GB / 138.92 GB (33.0%)
+===================================================
+Setting presets to: best_quality
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': MASE,
+ 'freq': 'D',
+ 'hyperparameters': 'default',
+ 'known_covariates_names': [],
+ 'num_val_windows': 2,
+ 'prediction_length': 48,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'target': 'Log_Closing_Price',
+ 'time_limit': 600,
+ 'verbosity': 2}
+
+train_data with frequency 'None' has been resampled to frequency 'D'.
+train_data contains missing values represented by NaN. They have been filled by carrying forward the last valid observation.
+Provided train_data has 10721 rows, 1 time series. Median time series length is 10721 (min=10721, max=10721). 
+
+Provided dataset contains following columns:
+	target:           'Log_Closing_Price'
+	past covariates:  ['Opening_Price', 'Highest_Price', 'Lowest_Price', 'Closing_Price', 'Trading_Volume', 'Trading_Value', 'BoxCox_Trading_Volume']
+
+AutoGluon will gauge predictive performance using evaluation metric: 'MASE'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2024-01-18 19:53:14
+Models that will be trained: ['SeasonalNaive', 'CrostonSBA', 'NPTS', 'AutoETS', 'DynamicOptimizedTheta', 'AutoARIMA', 'RecursiveTabular', 'DirectTabular', 'DeepAR', 'TemporalFusionTransformer', 'PatchTST']
+Training timeseries model SeasonalNaive. Training for up to 49.7s of the 597.0s of remaining time.
+	-1.5980       = Validation score (-MASE)
+	1.71    s     = Training runtime
+	1.25    s     = Validation (prediction) runtime
+Training timeseries model CrostonSBA. Training for up to 54.0s of the 594.0s of remaining time.
+	-0.9059       = Validation score (-MASE)
+	15.08   s     = Training runtime
+	10.26   s     = Validation (prediction) runtime
+Training timeseries model NPTS. Training for up to 56.9s of the 568.7s of remaining time.
+	-13.8242      = Validation score (-MASE)
+	1.77    s     = Training runtime
+	1.77    s     = Validation (prediction) runtime
+Training timeseries model AutoETS. Training for up to 62.8s of the 565.1s of remaining time.
+	-1.4800       = Validation score (-MASE)
+	26.58   s     = Training runtime
+	26.31   s     = Validation (prediction) runtime
+Training timeseries model DynamicOptimizedTheta. Training for up to 64.0s of the 512.2s of remaining time.
+	Time limit exceeded... Skipping DynamicOptimizedTheta.
+Training timeseries model AutoARIMA. Training for up to 64.0s of the 448.0s of remaining time.
+	-1.5517       = Validation score (-MASE)
+	16.83   s     = Training runtime
+	13.87   s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 69.5s of the 417.3s of remaining time.
+	-2.3096       = Validation score (-MASE)
+	30.84   s     = Training runtime
+	0.56    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 77.2s of the 385.9s of remaining time.
+	-1.7565       = Validation score (-MASE)
+	1.41    s     = Training runtime
+	0.06    s     = Validation (prediction) runtime
+Training timeseries model DeepAR. Training for up to 96.1s of the 384.4s of remaining time.
+D:\Anaconda\envs\AutoML\lib\site-packages\torchaudio\backend\utils.py:74: UserWarning: No audio backend is available.
+  warnings.warn("No audio backend is available.")
+	-1.0954       = Validation score (-MASE)
+	92.37   s     = Training runtime
+	0.26    s     = Validation (prediction) runtime
+Training timeseries model TemporalFusionTransformer. Training for up to 97.3s of the 291.8s of remaining time.
+	-1.0178       = Validation score (-MASE)
+	92.24   s     = Training runtime
+	0.02    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. Training for up to 99.7s of the 199.5s of remaining time.
+	-1.4803       = Validation score (-MASE)
+	66.05   s     = Training runtime
+	0.02    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+	Ensemble weights: {'AutoETS': 0.18, 'CrostonSBA': 0.69, 'DeepAR': 0.05, 'TemporalFusionTransformer': 0.07}
+	-0.8421       = Validation score (-MASE)
+	1.61    s     = Training runtime
+	36.85   s     = Validation (prediction) runtime
+Training complete. Models trained: ['SeasonalNaive', 'CrostonSBA', 'NPTS', 'AutoETS', 'AutoARIMA', 'RecursiveTabular', 'DirectTabular', 'DeepAR', 'TemporalFusionTransformer', 'PatchTST', 'WeightedEnsemble']
+Total runtime: 467.24 s
+Best model: WeightedEnsemble
+Best model score: -0.8421
+data with frequency 'None' has been resampled to frequency 'D'.
+data contains missing values represented by NaN. They have been filled by carrying forward the last valid observation.
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+                        mean       0.1       0.2  ...       0.7       0.8       0.9
+item_id timestamp                                 ...                              
+0       2023-11-18  0.969215  0.916366  0.934917  ...  0.990342  1.003507  1.022177
+        2023-11-19  0.968975  0.915227  0.934097  ...  0.990570  1.004121  1.023056
+        2023-11-20  0.968778  0.913690  0.932995  ...  0.990848  1.004668  1.024112
+        2023-11-21  0.968650  0.912618  0.932276  ...  0.991178  1.005344  1.024998
+        2023-11-22  0.968501  0.911618  0.931426  ...  0.991501  1.005882  1.025813
+        2023-11-23  0.968106  0.910329  0.930583  ...  0.991417  1.006040  1.026246
+        2023-11-24  0.967900  0.909483  0.930165  ...  0.991450  1.006159  1.026519
+        2023-11-25  0.967606  0.908694  0.929333  ...  0.991433  1.006335  1.026763
+        2023-11-26  0.967370  0.907774  0.928654  ...  0.991278  1.006351  1.026980
+        2023-11-27  0.967090  0.906992  0.928017  ...  0.991453  1.006576  1.027679
+        2023-11-28  0.967081  0.906290  0.927535  ...  0.991535  1.006765  1.027941
+        2023-11-29  0.967238  0.906057  0.927410  ...  0.991821  1.007218  1.028567
+        2023-11-30  0.967397  0.905689  0.927319  ...  0.992114  1.007699  1.029083
+        2023-12-01  0.967330  0.904928  0.926897  ...  0.992412  1.008198  1.029941
+        2023-12-02  0.967360  0.904595  0.926653  ...  0.992357  1.008171  1.029951
+        2023-12-03  0.967085  0.903890  0.926340  ...  0.992311  1.008087  1.030123
+        2023-12-04  0.967024  0.903201  0.925691  ...  0.992524  1.008532  1.030702
+        2023-12-05  0.967115  0.902680  0.925542  ...  0.992759  1.008915  1.031225
+        2023-12-06  0.966912  0.902282  0.925065  ...  0.992517  1.008793  1.031432
+        2023-12-07  0.966668  0.901677  0.924706  ...  0.992723  1.009015  1.031852
+        2023-12-08  0.966897  0.901520  0.924491  ...  0.992966  1.009475  1.032267
+        2023-12-09  0.966717  0.900867  0.924252  ...  0.993115  1.009799  1.032451
+        2023-12-10  0.966612  0.900509  0.923973  ...  0.993060  1.009631  1.032667
+        2023-12-11  0.966524  0.900020  0.923468  ...  0.993176  1.009843  1.033122
+        2023-12-12  0.966388  0.899082  0.922988  ...  0.993143  1.009900  1.032899
+        2023-12-13  0.966299  0.898700  0.922544  ...  0.992992  1.009977  1.033619
+        2023-12-14  0.966311  0.898444  0.922453  ...  0.993143  1.010227  1.033603
+        2023-12-15  0.966142  0.898359  0.922323  ...  0.993263  1.010261  1.034034
+        2023-12-16  0.966031  0.897779  0.921839  ...  0.993132  1.010258  1.033852
+        2023-12-17  0.966018  0.897557  0.921711  ...  0.993118  1.010371  1.033872
+        2023-12-18  0.965947  0.896919  0.921521  ...  0.993199  1.010418  1.034276
+        2023-12-19  0.965791  0.896642  0.921078  ...  0.993325  1.010478  1.034492
+        2023-12-20  0.965470  0.896284  0.920744  ...  0.993096  1.010301  1.034438
+        2023-12-21  0.965551  0.895864  0.920637  ...  0.993196  1.010472  1.034738
+        2023-12-22  0.965584  0.895403  0.920407  ...  0.993213  1.010622  1.034745
+        2023-12-23  0.965624  0.895053  0.920125  ...  0.993336  1.010783  1.034901
+        2023-12-24  0.965512  0.895040  0.920001  ...  0.993310  1.010912  1.035072
+        2023-12-25  0.965437  0.894376  0.919559  ...  0.993397  1.010874  1.035387
+        2023-12-26  0.965226  0.894232  0.919419  ...  0.993577  1.011250  1.035749
+        2023-12-27  0.965336  0.893867  0.919238  ...  0.993528  1.011221  1.035946
+        2023-12-28  0.965445  0.893335  0.918788  ...  0.993822  1.011724  1.036334
+        2023-12-29  0.965275  0.893007  0.918859  ...  0.993766  1.011649  1.036451
+        2023-12-30  0.965144  0.892730  0.918426  ...  0.993838  1.011997  1.036963
+        2023-12-31  0.965171  0.892582  0.918362  ...  0.993986  1.012079  1.036837
+        2024-01-01  0.965603  0.891645  0.917679  ...  0.994930  1.013041  1.038479
+        2024-01-02  0.965773  0.891478  0.917493  ...  0.995158  1.013364  1.038930
+        2024-01-03  0.965851  0.891492  0.917668  ...  0.995698  1.013956  1.039705
+        2024-01-04  0.966115  0.891507  0.917789  ...  0.995885  1.014264  1.040276
+
+[48 rows x 10 columns]
+
+Process finished with exit code 0
