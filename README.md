@@ -5,9 +5,12 @@ Instruction：First execute data process.py to generate data file, then execute 
 COMMITMENTS:            
 1.Use GRU model to predict stock price         
 2.Plot the price line of real and predicted price         
-3.Calculate the RMES and MES as index to show the the accuracy of the model          
+3.Calculate the RMES and MES as index to show the the accuracy of the model                       
+
+RESULT:
 Daily:----- Test_RMSE ----- 483.2620460907412                   
-5min:
+5min:  
+
 PRESENT PROBLEMS for further work：             
 1.The The functions of investment portfolios haven't been added       
 2.The process of plot 5min_data is extremely slow due to the amount of data           
